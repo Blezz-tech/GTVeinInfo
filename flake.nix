@@ -20,6 +20,8 @@
             pkgs.jdk
           ];
 
+          env.PROGRAM_NAME = "app.jar";
+
           shellHook = ''      
             mkdir -p build
 
