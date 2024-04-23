@@ -5,6 +5,8 @@ pkgs.mkShell {
     pkgs.jdk
   ];
 
+  env.PROGRAM_NAME = "app.jar";
+
   shellHook = ''
     mkdir -p build
 
@@ -12,6 +14,9 @@ pkgs.mkShell {
 
     cd build
 
-    jar cvfm $PROGRAM_NAME /build/src/META-INF/MANIFEST.MF *
+    jar cvfm $PROGRAM_NAME ../src/META-INF/MANIFEST.MF *
+  
+    alias runapp='java -jar ./build/$PROGRAM_NAME'
+
   '';
 }
